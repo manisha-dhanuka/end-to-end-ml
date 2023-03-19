@@ -1,4 +1,5 @@
 import sys
+from src.logger import logging
 
 def get_error_message(error, error_detail:sys):
     _,_, error_tb = error_detail.exc_info()
@@ -9,13 +10,19 @@ def get_error_message(error, error_detail:sys):
     return error_message
 
 
-def CustomException(Exception):
+class CustomException(Exception):
+
     def __init__(self, error_message,error_detail:sys):
-        
-        # that is we will pass the error message and with that error message, an instance of exception class is created
         super().__init__(error_message)
         self.error_message = get_error_message(error_message,error_detail)
 
     def __str__(self):
         return self.error_message
+    
+    if __name__=='__main__':
+        try:
+            a = 1/0
+        except Exception as e:
+            logging.info('Division by zero')
+            raise CustomException(e, sys)
 

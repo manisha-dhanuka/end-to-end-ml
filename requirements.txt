@@ -3,4 +3,8 @@ numpy
 seaborn
 matplotlib
 datetime
--e .
+scikit-learn
+xgboost
+dill
+flask
+#-e .
