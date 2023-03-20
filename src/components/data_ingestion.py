@@ -34,21 +34,14 @@ class DataIngestion:
             train_data, test_data = train_test_split(df, test_size =0.2, random_state=40 )
             logging.info('Train test split done')
 
-            df.to_csv(self.ingestionconfig.raw_data_path)
-            train_data.to_csv(self.ingestionconfig.train_data_path)
-            test_data.to_csv(self.ingestionconfig.test_data_path)
+            # df.to_csv(self.ingestionconfig.raw_data_path)
+            # train_data.to_csv(self.ingestionconfig.train_data_path)
+            # test_data.to_csv(self.ingestionconfig.test_data_path)
             logging.info('Ingestion of data is completed')
 
             return (self.ingestionconfig.train_data_path, self.ingestionconfig.test_data_path)
         except Exception as e:
             raise CustomException(e,sys)
 
-if __name__ =='__main__':
-    obj = DataIngestion()
-    obj.initiate_data_ingestion()
+
             
-
-
-
-
-
