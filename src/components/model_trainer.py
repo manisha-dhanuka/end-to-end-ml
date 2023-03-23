@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from src.exceptions import CustomException
 from src.logger import logging
 
-from src.utils import save_object, evaluate_models
+from src.utils import save_object, evaluate_models, get_binary_encoded_columns
 
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
